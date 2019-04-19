@@ -7,10 +7,9 @@ credentials = {}
 
 with open('credentials.json') as f:
     cred = json.load(f)
-    credentials['username'] = cred['postgresql']['username']
-    credentials['password'] = cred['postgresql']['password']
+    credentials = cred['postgresql']
 
-engine = create_engine('postgresql+psycopg2://{}:{}@104.199.52.163:5432/opendata'.format(credentials['username'], credentials['password']))
+engine = create_engine('postgresql+psycopg2://{}:{}@{}:{}/opendata'.format(credentials['username'], credentials['password'], credentials['host'], credentials['port']))
 app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
