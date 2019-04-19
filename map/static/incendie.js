@@ -11,6 +11,8 @@ function add_incendie_markers() {
         let l = incendie_locations[i];
         let circle = new L.circleMarker([l[1], l[2]], {
             color: 'red',
+            opacity: 0.5,
+            weight: 2,
             fillColor: '#f03',
             fillOpacity: 0.5,
             radius: Math.max(l[3] / 30, 2)

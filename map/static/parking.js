@@ -12,6 +12,8 @@ function add_parking_markers() {
         let l = parking_locations[i];
         let circle = new L.circleMarker([l[1], l[2]], {
             color: 'blue',
+            opacity: 0.5,
+            weight: 2,
             fillColor: '#03f',
             fillOpacity: 0.5,
             radius: Math.max(l[3] / 20, 5)
