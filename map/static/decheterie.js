@@ -15,7 +15,7 @@ function add_decheterie_markers() {
             weight: 2,
             fillColor: '#7cfc00',
             fillOpacity: 0.5,
-            radius:15
+            radius:10
         }).bindPopup(l[0]).addTo(mymap);
         circle.on('mouseover', ev => {
             ev.target.openPopup();

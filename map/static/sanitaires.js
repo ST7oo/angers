@@ -11,11 +11,11 @@ function add_sanitaire_markers() {
         let l = sanitaire_locations[i];
         let circle = new L.circleMarker([l[1], l[2]], {
             color: 'deep pink',
-            opacity: 0.5,
+            opacity: 0.9,
             weight: 2,
-            fillColor: '#fc007c',
-            fillOpacity: 0.5,
-            radius: 15
+            fillColor: '#696969',
+            fillOpacity: 0.75,
+            radius: 11
         }).bindPopup(l[0]).addTo(mymap);
         circle.on('mouseover', ev => {
             ev.target.openPopup();

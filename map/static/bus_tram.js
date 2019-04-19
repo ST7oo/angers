@@ -10,12 +10,12 @@ function add_bus_tram_markers() {
     for (let i in bus_tram_locations) {
         let l = bus_tram_locations[i];
         let circle = new L.circleMarker([l[1], l[2]], {
-            color: 'purple',
+            color: 'cyan',
             opacity: 0.5,
             weight: 2,
-            fillColor: '#800080',
-            fillOpacity: 0.5,
-            radius: 15
+            fillColor: '#e0ffff',
+            fillOpacity: 0.2,
+            radius: 5
         }).bindPopup(l[0]).addTo(mymap);
         circle.on('mouseover', ev => {
             ev.target.openPopup();
