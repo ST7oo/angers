@@ -37,6 +37,55 @@ def borne_incendie():
     results = conn.execute(s).fetchall()
     return jsonify({'results': [list(r) for r in results]})
 
+@app.route('/decheterie')
+def decheterie():
+    s = text('''
+    SELECT "VILLE", AVG(latitude), AVG(longitude), COUNT("VILLE")
+    FROM "Decheterie_Angers"
+    GROUP BY "VILLE"
+    ''')
+    conn = engine.connect()
+    results = conn.execute(s).fetchall()
+    return jsonify({'results': [list(r) for r in results]})
 
+@app.route('/bus_tram')
+def bus_tram():
+    s = text('''
+    SELECT "nomarret", latitude, longitude
+    FROM "Dessertes_Bus_Tram_Angers"
+    ''')
+    conn = engine.connect()
+    results = conn.execute(s).fetchall()
+    return jsonify({'results': [list(r) for r in results]})
+
+@app.route('/travaux')
+def travaux():
+    s = text('''
+    SELECT "title", latitude, longitude
+    FROM "Info_Travaux_Angers"
+    ''')
+    conn = engine.connect()
+    results = conn.execute(s).fetchall()
+    return jsonify({'results': [list(r) for r in results]})
+
+@app.route('/sanitaire')
+def sanitaires():
+    s = text('''
+    SELECT "NOM", latitude, longitude
+    FROM "Sanitaires_Publics_Angers"
+    ''')
+    conn = engine.connect()
+    results = conn.execute(s).fetchall()
+    return jsonify({'results': [list(r) for r in results]})
+
+@app.route('/stations_velo')
+def stations_velo():
+    s = text('''
+    SELECT "NOM", latitude, longitude, "ARC_NB"
+    FROM "Stations_Velo_Angers"
+    ''')
+    conn = engine.connect()
+    results = conn.execute(s).fetchall()
+    return jsonify({'results': [list(r) for r in results]})
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
