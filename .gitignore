@@ -2,3 +2,5 @@
 .vscode/
 **/*.pyc
 **/credentials.json
+data/
+postgresql/

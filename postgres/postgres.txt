@@ -1,5 +1,0 @@
-host: 104.199.52.163
-port: 5432
-database: opendata
-username: elodie
-password: elodie123

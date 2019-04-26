@@ -26,6 +26,16 @@ def parking():
     results = conn.execute(s).fetchall()
     return jsonify({'results': [list(r) for r in results]})
 
+@app.route('/parking_full')
+def parking_full():
+    s = text('''
+    SELECT parking, latitude, longitude, places
+    FROM parking_list
+    ''')
+    conn = engine.connect()
+    results = conn.execute(s).fetchall()
+    return jsonify({'results': [list(r) for r in results]})
+
 @app.route('/borne_incendie')
 def borne_incendie():
     s = text('''
